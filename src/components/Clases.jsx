@@ -17,6 +17,7 @@ const Clases = ({ clases, setClases }) => {
       const clasesActualizadas = clases.map(clase => clase.id === nuevaClase.id ? nuevaClase : clase);
       setClases(clasesActualizadas); // Actualiza App.jsx
     } else {
+      // eslint-disable-next-line react-hooks/purity
       const claseRegistrada = { ...nuevaClase, id: Date.now(), estado: 'Pendiente' };
       setClases([claseRegistrada, ...clases]); // Actualiza App.jsx
     }

@@ -31,13 +31,14 @@ const Caballos = ({ data, setCaballos }) => {
     if (!nuevoCaballo.nombre) return;
 
     if (nuevoCaballo.id) {
-      // EDITAR: Actualizamos los datos básicos manteniendo el historial médico
+      // EDITAR
       const actualizados = data.map(c => 
         c.id === nuevoCaballo.id ? { ...c, ...nuevoCaballo } : c
       );
       setCaballos(actualizados);
     } else {
-      // CREAR: Nuevo caballo
+      // CREAR
+      // eslint-disable-next-line react-hooks/purity
       const nuevo = { ...nuevoCaballo, id: Date.now() };
       setCaballos([nuevo, ...data]);
     }

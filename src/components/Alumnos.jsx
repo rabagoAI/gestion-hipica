@@ -18,6 +18,7 @@ const Alumnos = ({ alumnos, setAlumnos }) => {
       const actualizados = alumnos.map(al => al.id === nuevoAlumno.id ? nuevoAlumno : al);
       setAlumnos(actualizados); // Actualiza en App.jsx
     } else {
+      // eslint-disable-next-line react-hooks/purity
       const nuevo = { ...nuevoAlumno, id: Date.now() };
       setAlumnos([nuevo, ...alumnos]); // Actualiza en App.jsx
     }
